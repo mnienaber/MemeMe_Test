@@ -47,14 +47,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        self.subscribeToKeyboardNotificationsExpand()
-        self.subscribeToKeyboardNotificationsCollapse()
+        subscribeToKeyboardNotificationsExpand()
+        subscribeToKeyboardNotificationsCollapse()
 
     }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     func imagePickerRefactor(sourceTypeVar: UIImagePickerControllerSourceType) {
@@ -67,12 +67,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func pickAnImage(sender: AnyObject) {
         
-        self.imagePickerRefactor(UIImagePickerControllerSourceType.PhotoLibrary)
+        imagePickerRefactor(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
         
-        self.imagePickerRefactor(UIImagePickerControllerSourceType.Camera)
+        imagePickerRefactor(UIImagePickerControllerSourceType.Camera)
     }
     
     func imagePickerController(picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -113,7 +113,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height
     }
     
@@ -153,14 +153,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func saveMemeButton(sender: AnyObject) {
         
-        self.save(generateMemedImage())
-        self.savedImageAlert()
+        save(generateMemedImage())
+        savedImageAlert()
     }
     
     func generateMemedImage() -> UIImage {
         
-        self.topNavBar.hidden = true
-        self.bottomToolBar.hidden = true
+        topNavBar.hidden = true
+        bottomToolBar.hidden = true
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,
@@ -169,34 +169,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        self.bottomToolBar.hidden = false
-        self.topNavBar.hidden = false
+        bottomToolBar.hidden = false
+        topNavBar.hidden = false
         return memedImage
     }
     
     func savedImageAlert() {
         
         let alert = UIAlertController(title: "Done!", message: "Saved to your Camera Roll. \n\nShare it with your friends!", preferredStyle: .Alert)
-        let oKAction = UIAlertAction(title: "OK", style: .Default) { action -> Void in
-        }
+        let oKAction = UIAlertAction(title: "OK", style: .Default) { action -> Void in } 
         alert.addAction(oKAction)
         self.presentViewController(alert, animated: true, completion: nil)
-        print("yes")
         
-        
-        //alert.title = "Done!"
-        //alert.message = "Your meme was saved to your Camera Roll. \n\nShare it with your friends!"
-        //alert.delegate = self
-        //alert.addButtonWithTitle("OK")
-        //alert.show()
     }
     
     @IBAction func shareMeme(sender: UIBarButtonItem) {
         
-        let shareableMeme = [self.generateMemedImage()]
+        let shareableMeme = [generateMemedImage()]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
         self.presentViewController(activityView, animated: true, completion: nil)
-        self.save(generateMemedImage())
+        save(generateMemedImage())
     }
 
 }

@@ -97,7 +97,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-556.5" y="674"/>
+            <point key="canvasLocation" x="-592.5" y="261"/>
         </scene>
         <!--Sent Memes Table View Controller-->
         <scene sceneID="Y0B-Qk-2dd">
@@ -203,7 +203,7 @@
                     <navigationItem key="navigationItem" id="0oU-sT-5Cm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CMO-MP-mgh">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="zgh-TV-S99"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="VC3-Dc-Rm4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -260,7 +260,7 @@
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="ZCP-YY-waj"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="pu5-HU-6kf">
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="pu5-HU-6kf">
                                             <connections>
                                                 <action selector="saveMemeButton:" destination="BYZ-38-t0r" id="Mdj-8l-hsy"/>
                                             </connections>

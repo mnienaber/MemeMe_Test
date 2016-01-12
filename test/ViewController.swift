@@ -144,12 +144,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func saveMemeButton(sender: AnyObject) {
         
         save(generateMemedImage())
-        savedImageAlert()
+        startOver()
     }
     
     func generateMemedImage() -> UIImage {
@@ -171,7 +172,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func savedImageAlert() {
         
-        let alert = UIAlertController(title: "Done!", message: "Saved to your Camera Roll. \n\nShare it with your friends!", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Done!", message: "Saved to your Camera Roll.", preferredStyle: .Alert)
         let oKAction = UIAlertAction(title: "OK", style: .Default) { action -> Void in } 
         alert.addAction(oKAction)
         self.presentViewController(alert, animated: true, completion: nil)
@@ -182,8 +183,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let shareableMeme = [generateMemedImage()]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
+        self.saveMemeOutlet.title = "Done"
         self.presentViewController(activityView, animated: true, completion: nil)
-        save(generateMemedImage())
+        
+    }
+    
+    func startOver() {
+        
+        if let navigationController = self.navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
     }
 
 }

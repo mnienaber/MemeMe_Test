@@ -144,6 +144,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
+        print(appDelegate.memes)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -151,6 +152,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         save(generateMemedImage())
         startOver()
+        self.saveMemeOutlet.title = "Done"
     }
     
     func generateMemedImage() -> UIImage {

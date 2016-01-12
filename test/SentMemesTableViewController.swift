@@ -13,8 +13,13 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var tableView: UITableView!
     
-    var memes: [Meme]{
-        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    var memes: [Meme]!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        self.memes = applicationDelegate.memes
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,7 +33,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         
         cell.textLabel!.text = info.topString
         cell.detailTextLabel!.text = info.bottomString
-        cell.imageView?.image = info.memedImage
+        cell.imageView!.image = info.memedImage
         
         return cell
         

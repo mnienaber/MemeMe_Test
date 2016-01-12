@@ -18,14 +18,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var shareOutlet: UIBarButtonItem!
     @IBOutlet weak var saveMemeOutlet: UIBarButtonItem!
-
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -2.0
-    ]
+        NSStrokeWidthAttributeName : -2.0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,24 +129,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
-    struct Meme {
-        var topString: String
-        var bottomString: String
-        var originalImage: UIImage
-        var memedImage: UIImage
     }
     
     func save(memedImage: UIImage) {
         
-        let leMeme = Meme(topString: topFieldText.text!, bottomString: bottomFieldText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let meme = Meme(topString: topFieldText.text!, bottomString: bottomFieldText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         UIImageWriteToSavedPhotosAlbum(memedImage, nil, nil, nil)
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     @IBAction func saveMemeButton(sender: AnyObject) {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     

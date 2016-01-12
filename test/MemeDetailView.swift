@@ -9,21 +9,4 @@
 import Foundation
 import UIKit
 
-class MemeDetailView: UIViewController {
-    
-    override func viewDidLoad() {
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem (
-            title: "Create",
-            style: UIBarButtonItemStyle.Plain,
-            target: self,
-            action: "startOver")
-    }
-    
-    func startOver() {
-        
-        if let navigationController = self.navigationController {
-            navigationController.popToRootViewControllerAnimated(true)
-        }
-    }
-}
+

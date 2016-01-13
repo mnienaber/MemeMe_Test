@@ -13,23 +13,10 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBOutlet weak var tableView: UITableView!
     
-    //var memes: [Meme] {
-    //    return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
-    //}
-    
-    var memes: [Meme]!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if memes == nil {
-            print("Nil!")
-        } else {
-            print(memes)
-        }
-        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        self.memes = applicationDelegate.memes
-        self.tableView.reloadData()
+    var memes: [Meme] {
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(memes.count)
@@ -41,8 +28,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         let cell = tableView.dequeueReusableCellWithIdentifier("TableCell", forIndexPath: indexPath)
         let info = self.memes[indexPath.row]
         
-        cell.textLabel!.text = info.topString
-        cell.detailTextLabel!.text = info.bottomString
+        cell.textLabel!.text = (info.topString + " " + info.bottomString)
         cell.imageView!.image = info.memedImage
         
         return cell

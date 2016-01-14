@@ -152,7 +152,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         save(generateMemedImage())
         startOver()
-        self.saveMemeOutlet.title = "Done"
+        saveMemeOutlet.title = "Done"
     }
     
     func generateMemedImage() -> UIImage {

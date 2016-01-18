@@ -12,12 +12,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var topFieldText: UITextField!
-    @IBOutlet weak var bottomFieldText: UITextField!
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var shareOutlet: UIBarButtonItem!
     @IBOutlet weak var saveMemeOutlet: UIBarButtonItem!
+    @IBOutlet weak var topFieldText: UITextField!
+    @IBOutlet weak var bottomFieldText: UITextField!
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -27,12 +27,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topFieldText.textAlignment = NSTextAlignment.Center
-        bottomFieldText.textAlignment = NSTextAlignment.Center
+
         topFieldText.defaultTextAttributes = memeTextAttributes
         bottomFieldText.defaultTextAttributes = memeTextAttributes
         topFieldText.text = "TOP TEXT"
         bottomFieldText.text = "BOTTOM TEXT"
+        topFieldText.textAlignment = NSTextAlignment.Center
+        bottomFieldText.textAlignment = NSTextAlignment.Center
         
         self.topFieldText.delegate = self
         self.bottomFieldText.delegate = self

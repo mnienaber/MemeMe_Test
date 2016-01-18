@@ -495,12 +495,12 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="116"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="97" id="oZ5-AZ-9bi">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="264"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="360"/>
                                     </constraint>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="56M-44-j8X"/>
@@ -521,21 +521,27 @@
                                 <variation key="widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="OVT-Me-xFr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5XZ-JS-FPN"/>
-                            <constraint firstItem="Ybb-qk-D4y" firstAttribute="centerX" secondItem="bpf-uz-Lzw" secondAttribute="centerX" id="60h-YC-S1K"/>
+                            <constraint firstItem="Ybb-qk-D4y" firstAttribute="centerX" secondItem="bpf-uz-Lzw" secondAttribute="centerX" id="60h-YC-S1K">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-1.5"/>
+                            </constraint>
                             <constraint firstItem="OVT-Me-xFr" firstAttribute="top" secondItem="Ybb-qk-D4y" secondAttribute="bottom" constant="84" id="8YG-aB-uGY"/>
                             <constraint firstItem="UxY-9m-gRA" firstAttribute="top" secondItem="bpf-uz-Lzw" secondAttribute="bottom" constant="79" id="9Or-QG-Te8">
                                 <variation key="heightClass=regular-widthClass=compact" constant="47"/>
                             </constraint>
                             <constraint firstItem="OVT-Me-xFr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="AQe-8o-85g"/>
                             <constraint firstItem="bpf-uz-Lzw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-17" id="BJH-LN-KbR"/>
-                            <constraint firstItem="UxY-9m-gRA" firstAttribute="centerX" secondItem="Ybb-qk-D4y" secondAttribute="centerX" id="BzA-ak-QWg"/>
+                            <constraint firstItem="UxY-9m-gRA" firstAttribute="centerX" secondItem="Ybb-qk-D4y" secondAttribute="centerX" id="BzA-ak-QWg">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="OVT-Me-xFr" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="KV5-iV-Gy3"/>
                             <constraint firstItem="hlW-MV-BkN" firstAttribute="top" secondItem="bpf-uz-Lzw" secondAttribute="bottom" constant="38" id="KWX-Se-eZT">
                                 <variation key="widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="bpf-uz-Lzw" secondAttribute="trailing" constant="-20" id="PpZ-14-twv"/>
-                            <constraint firstItem="Ybb-qk-D4y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="49" id="QNO-ot-XTD"/>
+                            <constraint firstItem="Ybb-qk-D4y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="49" id="QNO-ot-XTD">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OVT-Me-xFr" secondAttribute="bottom" id="QmO-CT-rEY"/>
                             <constraint firstItem="bpf-uz-Lzw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cmw-LN-wQG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hlW-MV-BkN" secondAttribute="trailing" constant="34" id="f7A-al-6F3">

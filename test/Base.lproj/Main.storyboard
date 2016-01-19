@@ -536,11 +536,11 @@
             </objects>
             <point key="canvasLocation" x="2026.5" y="276.75"/>
         </scene>
-        <!--Item-->
+        <!--Collection-->
         <scene sceneID="jUj-la-l6F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Ce-AI-RTR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GJ8-4W-Lim"/>
+                    <tabBarItem key="tabBarItem" title="Collection" id="GJ8-4W-Lim"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hLs-1l-bgn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -557,6 +557,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jdu-Ln-l0d"/>
+        <segue reference="VC3-Dc-Rm4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -109,26 +109,26 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Q8Z-1X-GBM"/>
-                                <exclude reference="wKP-hS-KbR"/>
                                 <exclude reference="69L-WK-fUd"/>
                                 <exclude reference="6kK-Sp-fmn"/>
                                 <exclude reference="AEc-Qq-iBr"/>
                                 <exclude reference="b2Y-Xl-4hL"/>
                                 <exclude reference="kG9-yo-NJP"/>
                                 <exclude reference="rWo-EL-OtZ"/>
+                                <exclude reference="Q8Z-1X-GBM"/>
+                                <exclude reference="wKP-hS-KbR"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="Q8Z-1X-GBM"/>
-                                <include reference="wKP-hS-KbR"/>
                                 <include reference="69L-WK-fUd"/>
                                 <include reference="6kK-Sp-fmn"/>
                                 <include reference="AEc-Qq-iBr"/>
                                 <include reference="b2Y-Xl-4hL"/>
                                 <include reference="kG9-yo-NJP"/>
                                 <include reference="rWo-EL-OtZ"/>
+                                <include reference="Q8Z-1X-GBM"/>
+                                <include reference="wKP-hS-KbR"/>
                             </mask>
                         </variation>
                     </view>
@@ -165,7 +165,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="Afy-O3-G2L">
-                                    <size key="itemSize" width="265" height="399"/>
+                                    <size key="itemSize" width="135" height="110"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -175,7 +175,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="265" height="399"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icQ-bm-9JN">
@@ -185,29 +185,25 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="icQ-bm-9JN" secondAttribute="trailing" id="Baq-ri-BWI"/>
-                                            <constraint firstItem="icQ-bm-9JN" firstAttribute="top" secondItem="9tM-8v-iZQ" secondAttribute="topMargin" constant="-5" id="GJf-jM-qtu">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
-                                            </constraint>
-                                            <constraint firstAttribute="bottom" secondItem="icQ-bm-9JN" secondAttribute="bottom" id="PaD-B5-O1o">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                                            </constraint>
-                                            <constraint firstItem="icQ-bm-9JN" firstAttribute="leading" secondItem="9tM-8v-iZQ" secondAttribute="leading" id="fyc-5d-Ov4"/>
+                                            <constraint firstItem="icQ-bm-9JN" firstAttribute="top" secondItem="9tM-8v-iZQ" secondAttribute="top" id="6DD-it-LzA"/>
+                                            <constraint firstAttribute="bottom" secondItem="icQ-bm-9JN" secondAttribute="bottom" id="OUT-1p-xDR"/>
+                                            <constraint firstAttribute="trailing" secondItem="icQ-bm-9JN" secondAttribute="trailing" id="UHJ-RW-0Wz"/>
+                                            <constraint firstItem="icQ-bm-9JN" firstAttribute="leading" secondItem="9tM-8v-iZQ" secondAttribute="leading" id="wQG-We-lbP"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="Baq-ri-BWI"/>
-                                                <exclude reference="GJf-jM-qtu"/>
-                                                <exclude reference="PaD-B5-O1o"/>
-                                                <exclude reference="fyc-5d-Ov4"/>
+                                                <exclude reference="6DD-it-LzA"/>
+                                                <exclude reference="OUT-1p-xDR"/>
+                                                <exclude reference="UHJ-RW-0Wz"/>
+                                                <exclude reference="wQG-We-lbP"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="Baq-ri-BWI"/>
-                                                <include reference="GJf-jM-qtu"/>
-                                                <include reference="PaD-B5-O1o"/>
-                                                <include reference="fyc-5d-Ov4"/>
+                                                <include reference="6DD-it-LzA"/>
+                                                <include reference="OUT-1p-xDR"/>
+                                                <include reference="UHJ-RW-0Wz"/>
+                                                <include reference="wQG-We-lbP"/>
                                             </mask>
                                         </variation>
                                         <connections>

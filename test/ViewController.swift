@@ -87,6 +87,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
         var newText: NSString = textField.text!
         newText = newText.stringByReplacingCharactersInRange(range, withString: string)
         return true
@@ -107,12 +108,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if bottomFieldText.isFirstResponder() {
             
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            bottomToolBar.hidden = true
+            view.frame.origin.y -= getKeyboardHeight(notification) - 44
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         
+        bottomToolBar.hidden = false
         view.frame.origin.y = 0
     }
     
@@ -160,7 +163,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         save(generateMemedImage())
         startOver()
-        saveMemeOutlet.title = "Done"
     }
     
     func generateMemedImage() -> UIImage {

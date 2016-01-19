@@ -6,7 +6,6 @@
 //  Copyright © 2016 Michael Nienaber. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 

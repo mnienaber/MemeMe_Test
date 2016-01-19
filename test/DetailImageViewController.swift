@@ -12,13 +12,13 @@ class DetailImageViewController: UIViewController {
 
     @IBOutlet weak var detailImageView: UIImageView!
     
-    var image = UIImage()
+    var image: Meme!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
         
-        self.detailImageView.image = self.image
-        
-    
+        super.viewWillAppear(animated)
+        self.detailImageView!.image = image.memedImage
     }
+
+
 }

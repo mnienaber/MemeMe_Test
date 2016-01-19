@@ -18,12 +18,13 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         super.viewWillAppear(true)
         self.tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(memes.count)
+        
         return memes.count
     }
     
@@ -38,5 +39,11 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         return cell
         
     }
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailImageViewController") as! DetailImageViewController
+        detailController.image = self.memes[indexPath.row]
+        self.navigationController!.pushViewController(detailController, animated: true)
+    }
 }

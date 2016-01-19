@@ -81,6 +81,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.dismissViewControllerAnimated(true, completion: nil)
             
         }
+        
         topFieldText.hidden = false
         bottomFieldText.hidden = false
     }
@@ -92,25 +93,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        
         textField.text = ""
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         return false
     }
     
     func keyboardWillShow(notification: NSNotification) {
+        
         if bottomFieldText.isFirstResponder() {
+            
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
+        
         view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height

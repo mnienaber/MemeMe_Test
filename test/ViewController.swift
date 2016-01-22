@@ -12,29 +12,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var topFieldText: UITextField!
-    @IBOutlet weak var bottomFieldText: UITextField!
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var shareOutlet: UIBarButtonItem!
     @IBOutlet weak var saveMemeOutlet: UIBarButtonItem!
+    @IBOutlet weak var topFieldText: UITextField!
+    @IBOutlet weak var bottomFieldText: UITextField!
 
-    
+
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -2.0
-    ]
+        NSStrokeWidthAttributeName : -2.0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topFieldText.textAlignment = NSTextAlignment.Center
-        bottomFieldText.textAlignment = NSTextAlignment.Center
+
         topFieldText.defaultTextAttributes = memeTextAttributes
         bottomFieldText.defaultTextAttributes = memeTextAttributes
         topFieldText.text = "TOP TEXT"
         bottomFieldText.text = "BOTTOM TEXT"
+        topFieldText.textAlignment = NSTextAlignment.Center
+        bottomFieldText.textAlignment = NSTextAlignment.Center
         
         self.topFieldText.delegate = self
         self.bottomFieldText.delegate = self
@@ -49,6 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         subscribeToKeyboardNotificationsExpand()
         subscribeToKeyboardNotificationsCollapse()
+        shareOutlet.enabled = false
 
     }
 
@@ -82,36 +83,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.dismissViewControllerAnimated(true, completion: nil)
             
         }
+        
         topFieldText.hidden = false
         bottomFieldText.hidden = false
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
         var newText: NSString = textField.text!
         newText = newText.stringByReplacingCharactersInRange(range, withString: string)
         return true
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        
         textField.text = ""
+        saveMemeOutlet.title = "Save"
+        shareOutlet.enabled = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         return false
     }
     
     func keyboardWillShow(notification: NSNotification) {
+        
         if bottomFieldText.isFirstResponder() {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            
+            bottomToolBar.hidden = true
+            view.frame.origin.y -= getKeyboardHeight(notification) - 44
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
+        
+        bottomToolBar.hidden = false
         view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height
@@ -120,7 +133,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func subscribeToKeyboardNotificationsExpand() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        saveMemeOutlet.enabled = false
+        saveMemeOutlet.enabled = true
     }
     
     func subscribeToKeyboardNotificationsCollapse() {
@@ -131,30 +144,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    struct Meme {
-        var topString: String
-        var bottomString: String
-        var originalImage: UIImage
-        var memedImage: UIImage
+    func startOver() {
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func save(memedImage: UIImage) {
         
-        let leMeme = Meme(topString: topFieldText.text!, bottomString: bottomFieldText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let meme = Meme(topString: topFieldText.text!, bottomString: bottomFieldText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         UIImageWriteToSavedPhotosAlbum(memedImage, nil, nil, nil)
-    }
-    
-    @IBAction func saveMemeButton(sender: AnyObject) {
-        
-        save(generateMemedImage())
-        savedImageAlert()
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        startOver()
     }
     
     func generateMemedImage() -> UIImage {
@@ -174,21 +184,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
-    func savedImageAlert() {
-        
-        let alert = UIAlertController(title: "Done!", message: "Saved to your Camera Roll. \n\nShare it with your friends!", preferredStyle: .Alert)
-        let oKAction = UIAlertAction(title: "OK", style: .Default) { action -> Void in } 
-        alert.addAction(oKAction)
-        self.presentViewController(alert, animated: true, completion: nil)
-        
+    @IBAction func saveMemeButton(sender: AnyObject) {
+
+        switch saveMemeOutlet {
+        case saveMemeOutlet where saveMemeOutlet.title == "Save":
+            save(generateMemedImage())
+        default:
+            startOver()
+        }
     }
     
     @IBAction func shareMeme(sender: UIBarButtonItem) {
         
         let shareableMeme = [generateMemedImage()]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
+        self.saveMemeOutlet.title = "Done"
         self.presentViewController(activityView, animated: true, completion: nil)
-        save(generateMemedImage())
+        startOver()
     }
 
 }

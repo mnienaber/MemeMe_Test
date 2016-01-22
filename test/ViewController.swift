@@ -18,6 +18,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //@IBOutlet weak var saveMemeOutlet: UINavigationBar!
     @IBOutlet weak var topFieldText: UITextField!
     @IBOutlet weak var bottomFieldText: UITextField!
+
+
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),

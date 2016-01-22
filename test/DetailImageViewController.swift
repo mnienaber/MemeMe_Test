@@ -19,7 +19,12 @@ class DetailImageViewController: UIViewController {
         super.viewWillAppear(animated)
         self.detailImageView!.image = image.memedImage
     }
-    
 
-
+    @IBAction func shareButton(sender: AnyObject) {
+        
+        let shareableMeme = [image.memedImage]
+        let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
+        self.presentViewController(activityView, animated: true, completion: nil)
+        
+    }
 }

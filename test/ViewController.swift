@@ -164,7 +164,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        startOver()
     }
     
     func generateMemedImage() -> UIImage {
@@ -189,6 +188,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         switch saveMemeOutlet {
         case saveMemeOutlet where saveMemeOutlet.title == "Save":
             save(generateMemedImage())
+            startOver()
         default:
             startOver()
         }
@@ -198,9 +198,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let shareableMeme = [generateMemedImage()]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
-        self.saveMemeOutlet.title = "Done"
         self.presentViewController(activityView, animated: true, completion: nil)
-        startOver()
+        save(generateMemedImage())
+        self.saveMemeOutlet.title = "Done"
     }
 
 }

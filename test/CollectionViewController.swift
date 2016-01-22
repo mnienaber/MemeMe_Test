@@ -59,7 +59,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         cell.imageView!.image = info.memedImage
         
         return cell
-        
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

@@ -331,17 +331,17 @@
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="pEe-fS-D7q"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="s18-kK-IRi">
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="s18-kK-IRi">
                                             <color key="tintColor" red="0.063593730330467224" green="0.023504016920924187" blue="0.014847499318420887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <action selector="saveMemeButton:" destination="BYZ-38-t0r" id="Pmj-IV-slk"/>
+                                                <action selector="saveMemeButton:" destination="BYZ-38-t0r" id="LX2-eq-bKb"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rR6-t7-6Tq">
-                                <rect key="frame" x="87" y="104" width="426" height="80"/>
+                                <rect key="frame" x="20" y="104" width="560" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="aBv-KT-Mjf"/>
                                 </constraints>
@@ -349,10 +349,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufD-zC-OYo">
-                                <rect key="frame" x="107" y="387" width="387" height="73"/>
+                                <rect key="frame" x="20" y="417" width="560" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="ErK-IP-rTD"/>
-                                    <constraint firstAttribute="width" constant="387" id="ZY5-mW-MPd"/>
+                                    <constraint firstAttribute="width" constant="560" id="ZY5-mW-MPd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -360,7 +360,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rR6-t7-6Tq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="67" id="0eF-zi-zfP"/>
+                            <constraint firstItem="rR6-t7-6Tq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0eF-zi-zfP"/>
                             <constraint firstItem="hlW-MV-BkN" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="4nu-gV-E6v"/>
                             <constraint firstItem="hlW-MV-BkN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="5Kn-Zb-ltb">
                                 <variation key="widthClass=compact" constant="-20"/>
@@ -379,7 +379,7 @@
                             <constraint firstItem="hlW-MV-BkN" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="oIJ-MY-ZwO">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-44"/>
                             </constraint>
-                            <constraint firstItem="LUd-e8-Doi" firstAttribute="top" secondItem="ufD-zC-OYo" secondAttribute="bottom" constant="96" id="p2W-jL-DCd"/>
+                            <constraint firstItem="LUd-e8-Doi" firstAttribute="top" secondItem="ufD-zC-OYo" secondAttribute="bottom" constant="66" id="p2W-jL-DCd"/>
                             <constraint firstItem="iY9-Se-AkA" firstAttribute="leading" secondItem="hlW-MV-BkN" secondAttribute="leading" id="qiz-5b-3JC"/>
                             <constraint firstItem="iY9-Se-AkA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rPR-pl-nW8"/>
                             <constraint firstItem="LUd-e8-Doi" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="zxf-rc-uFI"/>
@@ -390,7 +390,7 @@
                         <outlet property="bottomToolBar" destination="LUd-e8-Doi" id="qcv-Pk-Kw3"/>
                         <outlet property="cameraButton" destination="5wN-Xg-fSQ" id="3dw-FP-1eZ"/>
                         <outlet property="imagePickerView" destination="hlW-MV-BkN" id="IoD-AI-RK8"/>
-                        <outlet property="saveMemeOutlet" destination="s18-kK-IRi" id="7YX-86-K5P"/>
+                        <outlet property="saveMemeOutlet" destination="s18-kK-IRi" id="dJd-zy-0S3"/>
                         <outlet property="shareOutlet" destination="q1b-OH-afm" id="w7T-XS-Kf7"/>
                         <outlet property="topFieldText" destination="rR6-t7-6Tq" id="Xaa-xa-2aw"/>
                         <outlet property="topNavBar" destination="iY9-Se-AkA" id="ECF-yw-Uas"/>

@@ -25,6 +25,5 @@ class DetailImageViewController: UIViewController {
         let shareableMeme = [image.memedImage]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
         self.presentViewController(activityView, animated: true, completion: nil)
-        
     }
 }

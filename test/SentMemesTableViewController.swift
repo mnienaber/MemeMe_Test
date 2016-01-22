@@ -38,7 +38,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         cell.imageView!.image = info.memedImage
         
         return cell
-        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

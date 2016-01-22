@@ -49,6 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         subscribeToKeyboardNotificationsExpand()
         subscribeToKeyboardNotificationsCollapse()
+        shareOutlet.enabled = false
 
     }
 
@@ -97,6 +98,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func textFieldDidBeginEditing(textField: UITextField) {
         
         textField.text = ""
+        saveMemeOutlet.title = "Save"
+        shareOutlet.enabled = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -149,6 +152,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    func startOver() {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func save(memedImage: UIImage) {
         
         let meme = Meme(topString: topFieldText.text!, bottomString: bottomFieldText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
@@ -156,13 +164,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        print(appDelegate.memes)
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func saveMemeButton(sender: AnyObject) {
-        
-        save(generateMemedImage())
         startOver()
     }
     
@@ -183,21 +184,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
+    @IBAction func saveMemeButton(sender: AnyObject) {
+
+        switch saveMemeOutlet {
+        case saveMemeOutlet where saveMemeOutlet.title == "Save":
+            save(generateMemedImage())
+        default:
+            startOver()
+        }
+    }
+    
     @IBAction func shareMeme(sender: UIBarButtonItem) {
         
         let shareableMeme = [generateMemedImage()]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
-        self.saveMemeOutlet.enabled = false
+        self.saveMemeOutlet.title = "Done"
         self.presentViewController(activityView, animated: true, completion: nil)
         startOver()
-        
-    }
-    
-    func startOver() {
-        
-        if let navigationController = self.navigationController {
-            navigationController.popToRootViewControllerAnimated(true)
-        }
     }
 
 }

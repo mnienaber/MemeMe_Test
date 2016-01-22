@@ -15,12 +15,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var shareOutlet: UIBarButtonItem!
-    //@IBOutlet weak var saveMemeOutlet: UINavigationBar!
+    @IBOutlet weak var saveMemeOutlet: UIBarButtonItem!
     @IBOutlet weak var topFieldText: UITextField!
     @IBOutlet weak var bottomFieldText: UITextField!
 
 
-    
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
@@ -131,13 +130,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func subscribeToKeyboardNotificationsExpand() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        //saveMemeOutlet.hidden = true
+        saveMemeOutlet.enabled = true
     }
     
     func subscribeToKeyboardNotificationsCollapse() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        //saveMemeOutlet.hidden = true
+        saveMemeOutlet.enabled = true
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -184,21 +183,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
-    func savedImageAlert() {
-        
-        let alert = UIAlertController(title: "Done!", message: "Saved to your Camera Roll.", preferredStyle: .Alert)
-        let oKAction = UIAlertAction(title: "OK", style: .Default) { action -> Void in } 
-        alert.addAction(oKAction)
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-    }
-    
     @IBAction func shareMeme(sender: UIBarButtonItem) {
         
         let shareableMeme = [generateMemedImage()]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
-        //self.saveMemeOutlet. = "Done"
+        self.saveMemeOutlet.enabled = false
         self.presentViewController(activityView, animated: true, completion: nil)
+        startOver()
         
     }
     

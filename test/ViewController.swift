@@ -15,7 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var shareOutlet: UIBarButtonItem!
-    @IBOutlet weak var saveMemeOutlet: UIBarButtonItem!
+    //@IBOutlet weak var saveMemeOutlet: UINavigationBar!
     @IBOutlet weak var topFieldText: UITextField!
     @IBOutlet weak var bottomFieldText: UITextField!
     
@@ -129,13 +129,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func subscribeToKeyboardNotificationsExpand() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        saveMemeOutlet.enabled = false
+        //saveMemeOutlet.hidden = true
     }
     
     func subscribeToKeyboardNotificationsCollapse() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        saveMemeOutlet.enabled = true
+        //saveMemeOutlet.hidden = true
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -195,7 +195,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let shareableMeme = [generateMemedImage()]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
-        self.saveMemeOutlet.title = "Done"
+        //self.saveMemeOutlet. = "Done"
         self.presentViewController(activityView, animated: true, completion: nil)
         
     }

@@ -24,7 +24,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let space: CGFloat = 1.5
         let dimension: CGFloat = size.width >= size.height ? (size.width - (2 * space)) / 10.0 :  (size.width - (2 * space)) / 3.0
         
-        flowLayout.minimumInteritemSpacing = space
+        //flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }

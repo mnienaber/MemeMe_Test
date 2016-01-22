@@ -11,6 +11,7 @@ import UIKit
 
 class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+
     @IBOutlet weak var tableView: UITableView!
     
     var memes: [Meme] {

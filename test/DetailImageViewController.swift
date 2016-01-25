@@ -11,6 +11,7 @@ import UIKit
 class DetailImageViewController: UIViewController {
 
     @IBOutlet weak var detailImageView: UIImageView!
+    var savedIndex: Int? = nil
     
     var image: Meme!
     

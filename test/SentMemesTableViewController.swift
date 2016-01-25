@@ -46,4 +46,15 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         detailController.image = self.memes[indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
     }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete
+        {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.memes.removeAtIndex(indexPath.row)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+        }
+    }
 }

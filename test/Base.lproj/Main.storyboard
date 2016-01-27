@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -269,15 +270,24 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rwC-g0-7UV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="mMW-XI-iaD">
-                            <color key="tintColor" red="0.063593730330467224" green="0.023504016920924187" blue="0.014847499318420887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="shareButton:" destination="z0t-v6-pMF" id="Wuo-nz-aBr"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="mMW-XI-iaD">
+                                <color key="tintColor" red="0.063593730330467224" green="0.023504016920924187" blue="0.014847499318420887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="z0t-v6-pMF" id="Wuo-nz-aBr"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="H9Z-cx-2u3">
+                                <color key="tintColor" red="0.063593730330467224" green="0.023504016920924187" blue="0.014847499318420887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="editMeme:" destination="z0t-v6-pMF" id="arA-mb-OXl"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="detailImageView" destination="egv-b3-XqX" id="Jj1-Dh-scZ"/>
+                        <outlet property="editButton" destination="H9Z-cx-2u3" id="yjQ-Uu-lAs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0H-LF-M4E" userLabel="First Responder" sceneMemberID="firstResponder"/>

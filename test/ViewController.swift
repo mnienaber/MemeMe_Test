@@ -18,7 +18,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var saveMemeOutlet: UIBarButtonItem!
     @IBOutlet weak var topFieldText: UITextField!
     @IBOutlet weak var bottomFieldText: UITextField!
-
+    
+    var meme: Meme!
+    var savedIndex: Int? = nil
 
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -63,7 +65,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = sourceTypeVar
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImage(sender: AnyObject) {
@@ -198,9 +200,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let shareableMeme = [generateMemedImage()]
         let activityView = UIActivityViewController(activityItems: shareableMeme, applicationActivities: nil)
-        self.presentViewController(activityView, animated: true, completion: nil)
+        presentViewController(activityView, animated: true, completion: nil)
         save(generateMemedImage())
-        self.saveMemeOutlet.title = "Done"
+        saveMemeOutlet.title = "Done"
     }
 
 }
